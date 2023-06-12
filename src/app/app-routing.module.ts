@@ -1,16 +1,10 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { Shell } from '@app/shell/shell.service';
+import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [
-  Shell.childRoutes([{ path: 'about', loadChildren: () => import('./about/about.module').then((m) => m.AboutModule) }]),
-  // Fallback when no prior route is matched
-  { path: '**', redirectTo: '', pathMatch: 'full' },
-];
+const routes: Routes = [];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
-  exports: [RouterModule],
-  providers: [],
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
